@@ -296,6 +296,7 @@ wait
         read YOUR_DOMAIN
         echo " "
         if [ "$YOUR_BOT_TOKEN" = "" ] || [ "$YOUR_DOMAIN" = "" ] || [ "$YOUR_CHAT_ID" = "" ]; then
+		echo "ommmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmma"
            exit
         fi
 
