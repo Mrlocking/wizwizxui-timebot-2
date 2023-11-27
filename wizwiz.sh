@@ -260,11 +260,11 @@ wait
 
     randomdbdb=$(openssl rand -base64 10 | tr -dc 'a-zA-Z' | cut -c1-8)
 
-    if [[ $(mysql -u root -p$ROOT_PASSWORD -e "SHOW DATABASES LIKE 'wizwiz'") ]]; then
+    if [[ $(mysql -u root -p$ROOT_PASSWORD -e "SHOW DATABASES LIKE 'wizwiz2'") ]]; then
         clear
         echo -e "\n\e[91mYou have already created the database\033[0m\n"
     else
-        dbname=wizwiz
+        dbname=wizwiz2
         clear
         echo -e "\n\e[32mPlease enter the database username!\033[0m"
         printf "[+] Default user name is \e[91m${randomdbdb}\e[0m ( let it blank to use this user name ): "
