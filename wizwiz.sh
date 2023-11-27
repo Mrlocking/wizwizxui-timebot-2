@@ -140,28 +140,28 @@ fi
 wait
 
 
-if [ ! -d "/root/confwizwiz" ]; then
+if [ ! -d "/root/confwizwiz-2" ]; then
 
-    sudo mkdir /root/confwizwiz
+    sudo mkdir /root/confwizwiz-2
     
     sleep 1
     
-    touch /root/confwizwiz/dbrootwizwiz.txt
-    sudo chmod -R 777 /root/confwizwiz/dbrootwizwiz.txt
+    touch /root/confwizwiz-2/dbrootwizwiz.txt
+    sudo chmod -R 777 /root/confwizwiz-2/dbrootwizwiz.txt
     sleep 1
     
     randomdbpasstxt=$(openssl rand -base64 10 | tr -dc 'a-zA-Z0-9' | cut -c1-8)
 
     ASAS="$"
 
-    echo "${ASAS}user = 'root';" >> /root/confwizwiz/dbrootwizwiz.txt
-    echo "${ASAS}pass = '${randomdbpasstxt}';" >> /root/confwizwiz/dbrootwizwiz.txt
-    echo "${ASAS}path = '${RANDOM_NUMBER}';" >> /root/confwizwiz/dbrootwizwiz.txt
+    echo "${ASAS}user = 'root';" >> /root/confwizwiz-2/dbrootwizwiz.txt
+    echo "${ASAS}pass = '${randomdbpasstxt}';" >> /root/confwizwiz-2/dbrootwizwiz.txt
+    echo "${ASAS}path = '${RANDOM_NUMBER}';" >> /root/confwizwiz-2/dbrootwizwiz.txt
     
     sleep 1
 
-    passs=$(cat /root/confwizwiz/dbrootwizwiz.txt | grep '$pass' | cut -d"'" -f2)
-    userrr=$(cat /root/confwizwiz/dbrootwizwiz.txt | grep '$user' | cut -d"'" -f2)
+    passs=$(cat /root/confwizwiz-2/dbrootwizwiz.txt | grep '$pass' | cut -d"'" -f2)
+    userrr=$(cat /root/confwizwiz-2/dbrootwizwiz.txt | grep '$user' | cut -d"'" -f2)
 
     sudo mysql -u $userrr -p$passs -e "alter user '$userrr'@'localhost' identified with mysql_native_password by '$passs';FLUSH PRIVILEGES;"
 
@@ -199,7 +199,7 @@ DOMAIN_NAME="$domainname"
 # WILDCARD_DOMAIN="*.$wildcarddomain"
 
 # update cron
-PATHS=$(cat /root/confwizwiz/dbrootwizwiz.txt | grep '$path' | cut -d"'" -f2)
+PATHS=$(cat /root/confwizwiz-2/dbrootwizwiz.txt | grep '$path' | cut -d"'" -f2)
 (crontab -l ; echo "* * * * * curl https://${DOMAIN_NAME}/wizwizxui-timebot-2/settings/messagewizwiz.php >/dev/null 2>&1") | sort - | uniq - | crontab -
 (crontab -l ; echo "* * * * * curl https://${DOMAIN_NAME}/wizwizxui-timebot-2/settings/rewardReport.php >/dev/null 2>&1") | sort - | uniq - | crontab -
 (crontab -l ; echo "* * * * * curl https://${DOMAIN_NAME}/wizwizxui-timebot-2/settings/warnusers.php >/dev/null 2>&1") | sort - | uniq - | crontab -
@@ -247,7 +247,7 @@ wait
 
 echo " "
 
-ROOT_PASSWORD=$(cat /root/confwizwiz/dbrootwizwiz.txt | grep '$pass' | cut -d"'" -f2)
+ROOT_PASSWORD=$(cat /root/confwizwiz-2/dbrootwizwiz.txt | grep '$pass' | cut -d"'" -f2)
 ROOT_USER="root"
 echo "SELECT 1" | mysql -u$ROOT_USER -p$ROOT_PASSWORD 2>/dev/null
 
