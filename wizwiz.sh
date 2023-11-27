@@ -223,16 +223,16 @@ echo -e "\n\033[1;7;33mEnabling automatic certificate renewal...\033[0m\n"
 sudo systemctl enable certbot.timer
 
 # SSL certificate using standalone mode
-echo -e "\n\033[1;7;34mObtaining SSL certificate using standalone mode...\033[0m\n"
-sudo certbot certonly --standalone --agree-tos --preferred-challenges http -d $DOMAIN_NAME
+# echo -e "\n\033[1;7;34mObtaining SSL certificate using standalone mode...\033[0m\n"
+# sudo certbot certonly --standalone --agree-tos --preferred-challenges http -d $DOMAIN_NAME
 
 # Certbot Apache plugin
-echo -e "\n\033[1;7;35mInstalling Certbot Apache plugin...\033[0m\n"
-sudo apt install python3-certbot-apache -y
+# echo -e "\n\033[1;7;35mInstalling Certbot Apache plugin...\033[0m\n"
+# sudo apt install python3-certbot-apache -y
 
 # SSL certificate using Apache plugin
-echo -e "\n\033[1;7;36mObtaining SSL certificate using Apache plugin...\033[0m\n"
-sudo certbot --apache --agree-tos --preferred-challenges http -d $DOMAIN_NAME
+# echo -e "\n\033[1;7;36mObtaining SSL certificate using Apache plugin...\033[0m\n"
+# sudo certbot --apache --agree-tos --preferred-challenges http -d $DOMAIN_NAME
 
 # echo -e "\n\033[1;7;33mObtaining SSL certificate using manual DNS mode (wildcard)...\033[0m\n"
 # sudo certbot certonly --manual --agree-tos --preferred-challenges dns -d $DOMAIN_NAME -d $WILDCARD_DOMAIN
