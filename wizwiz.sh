@@ -342,9 +342,9 @@ wait
         
         sleep 1
         
-        sudo rm -r /var/www/html/wizwizxui-timebot-2/webpanel
-	    sudo rm -r /var/www/html/wizwizxui-timebot-2/install
-	    sudo rm /var/www/html/wizwizxui-timebot-2/createDB.php
+     #    sudo rm -r /var/www/html/wizwizxui-timebot-2/webpanel
+	    # sudo rm -r /var/www/html/wizwizxui-timebot-2/install
+	    # sudo rm /var/www/html/wizwizxui-timebot-2/createDB.php
             
         clear
         
