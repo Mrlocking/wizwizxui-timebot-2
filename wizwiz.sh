@@ -251,7 +251,7 @@ ROOT_PASSWORD=$(cat /root/confwizwiz-2/dbrootwizwiz.txt | grep '$pass' | cut -d"
 ROOT_USER="root"
 echo "SELECT 1" | mysql -u$ROOT_USER -p$ROOT_PASSWORD 2>/dev/null
 
-
+echo "ommmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm0000000mma33333333333333333333333"
 if [ $? -eq 0 ]; then
 echo "ommmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmma33333333333333333333333"
 wait
