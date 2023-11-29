@@ -121,13 +121,13 @@ else
     echo "Folder already exists."
 fi
    
- destination_dir=$(find /var/www/html -type d -name "wozo" | head -n 1)
+ destination_dir=$(find /var/www/html -type d -name "*wizpanel*" | head -n 1)
 
  cd /var/www/html/
  wget -O wizwizpanel.zip https://github.com/wizwizdev/wizwizxui-timebot/releases/download/9.1.1/wizwizpanel.zip
 
  file_to_transfer="/var/www/html/wizwizpanel.zip"
- destination_dir=$(find /var/www/html -type d -name "wozo" | head -n 1)
+ destination_dir=$(find /var/www/html -type d -name "*wizpanel*" | head -n 1)
 
  if [ -z "$destination_dir" ]; then
    echo "Error: Could not find directory containing 'wiz' in '/var/www/html'"
